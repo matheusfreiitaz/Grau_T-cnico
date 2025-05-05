@@ -1,0 +1,23 @@
+### Regras para criar identificadores:
+
+1. **Devem começar com uma letra**, underline (`_`) ou cifrão (`$`)
+    - ✅ `nome`, `_usuario`, `$total`
+    - ❌ `1nome` (não pode começar com número)
+2. **Não pode ter espaços ou símbolos especiais**
+    - ✅ `meuNome`
+    - ❌ `meu nome` ou `meu-nome`
+3. **Não pode usar palavras reservadas da linguagem**
+    - ❌ `if`, `for`, `while`, `let`, etc. são palavras que o JavaScript já usa com outro propósito.
+
+### Exemplos de **palavras reservadas** no Portugol:
+### Exemplos de **palavras reservadas** no Portugol:
+
+| Palavra Reservada | Para que serve |
+| --- | --- |
+| `inicio` | Indica o começo do algoritmo |
+| `fim` | Indica o fim do algoritmo |
+| `leia` | Lê dados do usuário |
+| `escreva` | Mostra algo na tela |
+| `se`, `entao`, `senao` | Usado para decisões (condições) |
+| `enquanto`, `faca` | Repetições (laços) |
+| `inteiro`, `real`, `caractere`, `logico` | Tipos de variáveis |
