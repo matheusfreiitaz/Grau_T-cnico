@@ -1,0 +1,85 @@
+# **tipo cadeia**
+
+### **O que é o tipo cadeia?**
+
+O **tipo cadeia** é usado quando queremos **guardar textos** em uma variável. Esses textos podem ser palavras, frases ou até nomes.
+
+ Pense no tipo cadeia como uma **caixinha que guarda letras e palavras**.
+
+---
+
+### **Exemplo prático**
+
+Se você quiser guardar o nome de uma pessoa, você usa o tipo **cadeia**, porque nomes são feitos de letras.
+
+---
+
+### **Como declarar?**
+
+Você usa a palavra **`cadeia`** e o nome da variável:
+
+```
+visuAlg
+CopiarEditar
+cadeia nome
+
+```
+
+Se quiser guardar um texto diretamente, use aspas duplas:
+
+```
+visuAlg
+CopiarEditar
+nome = "João"
+
+```
+
+Se quiser pedir o nome para o usuário digitar, use o comando `leia`:
+
+```
+visuAlg
+CopiarEditar
+escreva("Digite seu nome: ")
+leia(nome)
+
+caractere : carro = mbw
+inteiro : idade 
+{
+escreva ("carro, azul ") bmw, azul
+leia ( bmw, azul) } {
+escreva (" idade" ) 
+leia  (" idade" ) {
+
+```
+
+---
+
+### **Exemplo completo explicado**
+
+```
+visuAlg
+CopiarEditar
+programa
+{
+    funcao inicio()
+    {
+        cadeia nome1, nome2  // criamos duas variáveis que guardam texto
+
+        nome1 = "alunos= "  // o valor já foi colocado direto no código
+
+        escreva("Digite seu nome: ")  // mostra uma pergunta pro usuário
+        leia(nome2)                   // guarda o que o usuário digitar em nome2
+
+        escreva("\nOlá ", nome2)      // mostra uma mensagem com o nome digitado
+    }
+}
+
+```
+
+---
+
+### 📝 **Resumo**
+
+- **Cadeia** = tipo usado para guardar **textos**.
+- Textos sempre ficam entre **aspas duplas**.
+- Pode ter valores definidos no código ou digitados pelo usuário.
