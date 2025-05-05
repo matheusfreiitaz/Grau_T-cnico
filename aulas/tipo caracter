@@ -1,0 +1,82 @@
+### **O que é o tipo caracter?**
+
+O **tipo caracter** é usado para **guardar um único símbolo**, como:
+
+- Uma **letra** (ex: `'a'`)
+- Um **número** (ex: `'5'`)
+- Um **sinal** (ex: `'!'`, `'-'`, `'#'`)
+
+➡️ Ele é diferente do tipo **cadeia**, que guarda **palavras ou frases inteiras**.
+
+O **tipo caracter guarda apenas *um* caractere**.
+
+---
+
+### 🧠 **Quando usar?**
+
+Use o tipo **caracter** quando precisar de **um símbolo só**.
+
+Exemplo: Em um **jogo da velha**, usamos `'X'` ou `'O'`.
+
+---
+
+### 🛠️ **Como declarar?**
+
+Use a palavra **`caracter`** seguida do nome da variável:
+
+```
+visuAlg
+CopiarEditar
+caracter letra
+
+```
+
+E para guardar um valor, use **aspas simples**:
+
+```
+visuAlg
+CopiarEditar
+letra = 'a'
+
+```
+
+---
+
+### ✅ **Exemplo completo explicado**
+
+```
+visuAlg
+CopiarEditar
+programa
+{
+    funcao inicio()
+    {
+        caracter vogal, consoante
+
+        vogal = 'a'  // valor colocado pelo programador
+
+        escreva("Digite uma consoante: ")
+        leia(consoante)  // valor digitado pelo usuário
+
+        escreva("Vogal: ", vogal, "\n", "Consoante: ", consoante)
+    }
+}
+
+```
+
+---
+
+### 📝 **Resumo**
+
+- **Tipo caracter** guarda **1 símbolo só**.
+- Usa **aspas simples**, como: `'x'`, `'5'`, `'?'`.
+- Ideal para jogos, letras individuais, símbolos.
+
+---
+
+Agora temos os resumos dos tipos:
+
+- `cadeia` → textos
+- `logico` → verdadeiro/falso
+- `real` → números com ponto (decimais)
+- `caracter` → apenas 1 símbolo
