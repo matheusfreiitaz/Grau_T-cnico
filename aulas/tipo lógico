@@ -1,0 +1,82 @@
+### **O que é o tipo lógico?**
+
+O **tipo lógico** é usado quando você precisa trabalhar com **respostas que só podem ser "verdadeiro" ou "falso"**.
+
+➡️ Ele é muito usado quando você quer **verificar condições**, como:
+
+- Um número é maior que 10?
+- O usuário digitou a senha certa?
+- A pessoa tem idade para votar?
+
+---
+
+### 🛠️ **Como declarar?**
+
+Você usa a palavra **`logico`** e o nome da variável:
+
+```
+visuAlg
+CopiarEditar
+logico teste
+
+```
+
+Essa variável **só pode guardar "verdadeiro" ou "falso"**.
+
+---
+
+### 🔎 **Como funciona na prática?**
+
+Vamos imaginar que o usuário digita um número, e queremos saber se ele é maior que 0:
+
+```
+visuAlg
+CopiarEditar
+inteiro num
+logico resultado
+
+leia(num)
+resultado = (num > 0)  // isso aqui gera um "verdadeiro" ou "falso"
+
+```
+
+---
+
+### ✅ **Exemplo completo explicado**
+
+```
+visuAlg
+CopiarEditar
+programa
+{
+    funcao inicio()
+    {
+        logico teste
+        inteiro num
+
+        escreva("Digite um valor para ser comparado: ")
+        leia(num)
+
+        teste = (num > 0)  // verifica se o número é maior que zero
+
+        escreva("O número digitado é maior que zero? ", teste)
+    }
+}
+
+```
+
+📌 Se o número for maior que zero, aparece:
+
+`O número digitado é maior que zero? verdadeiro`
+
+Se for zero ou menor, aparece:
+
+`... falso`
+
+---
+
+### 📝 **Resumo**
+
+- **Tipo lógico** guarda **verdadeiro** ou **falso**.
+- É usado para **comparações e decisões**.
+- Exemplos de comparações: `>`, `<`, `==`, `!=`, `>=`, `<=`.
