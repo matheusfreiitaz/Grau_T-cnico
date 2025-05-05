@@ -1,0 +1,70 @@
+### **O que é o tipo real?**
+
+O **tipo real** é usado para guardar **números com casas decimais**, ou seja, **números que não são inteiros**.
+
+➡️ Por exemplo:
+
+- 2.5
+- 3.14
+- 7.0
+- 8.3333...
+
+---
+
+### 🧠 **Quando usar?**
+
+Use o tipo **real** quando o número **pode ter vírgula**, como em **divisões** ou **médias**.
+
+➡️ Por exemplo, a divisão de 8 por 3 é **2.666...**, e isso **não cabe num número inteiro**.
+
+---
+
+### 🛠️ **Como declarar?**
+
+Use a palavra **`real`** seguida do nome da variável:
+
+```
+visuAlg
+CopiarEditar
+real resultado
+
+```
+
+---
+
+### 📌 **Atenção!**
+
+No **Portugol**, os **números reais usam ponto**, e **não vírgula**!
+
+✅ Correto: `3.14`
+
+❌ Errado: `3,14`
+
+---
+
+### ✅ **Exemplo completo explicado**
+
+```
+visuAlg
+CopiarEditar
+programa
+{
+    funcao inicio()
+    {
+        real div
+
+        div = 8.0 / 3.0  // resultado será 2.6666...
+
+        escreva(div)     // exibe o valor na tela
+    }
+}
+
+```
+
+---
+
+### 📝 **Resumo**
+
+- **Tipo real** guarda **números com casas decimais**.
+- Usa **ponto** para separar as casas decimais.
+- Ideal para **divisões**, **notas**, **médias** e **medidas**.
