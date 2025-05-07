@@ -1,0 +1,112 @@
+ Variáveis – A caixinha que guarda dados
+Conceito:
+Imagine uma caixinha com nome, onde guardamos informações que podem mudar.
+
+Exemplo:
+
+visuAlg
+Copiar
+Editar
+inteiro idade = 18
+💬 "Criei uma caixinha chamada idade e guardei o número 18 nela."
+
+Usamos variáveis para guardar valores que mudam ao longo do programa.
+
+2. 🧩 Tipos de Dados – Que tipo de coisa estamos guardando?
+Tipo	O que guarda	Exemplo
+inteiro	Números inteiros	5, -2, 100
+real	Números com vírgula/ponto	3.14, -0.5
+caractere	Letras ou símbolos isolados	'A', '!'
+logico	Verdadeiro ou falso	verdadeiro, falso
+cadeia	Conjunto de caracteres (texto)	"Olá mundo"
+
+3. ➕ Operadores – Ferramentas para cálculo e comparação
+🧮 Aritméticos:
++ soma
+
+- subtração
+
+* multiplicação
+
+/ divisão
+
+% resto da divisão
+
+⚖️ Relacionais:
+== igual
+
+!= diferente
+
+> maior
+
+< menor
+
+>= maior ou igual
+
+<= menor ou igual
+
+🔗 Lógicos:
+e (AND)
+
+ou (OR)
+
+nao (NOT)
+
+4. 🔀 Condicionais – Se isso acontecer, faça aquilo
+Permite ao programa tomar decisões com base em condições.
+
+Exemplo:
+
+visuAlg
+Copiar
+Editar
+se (idade >= 18) {
+  escreva("Pode entrar!")
+} senao {
+  escreva("Não pode entrar!")
+}
+5. 🔁 Repetições – Fazer algo várias vezes
+🌀 Enquanto:
+Repete enquanto a condição for verdadeira.
+
+visuAlg
+Copiar
+Editar
+inteiro i = 1
+enquanto (i <= 5) {
+  escreva(i)
+  i = i + 1
+}
+🔂 Para:
+Você define o início, fim e passo.
+
+visuAlg
+Copiar
+Editar
+para (inteiro i = 1; i <= 5; i = i + 1) {
+  escreva(i)
+}
+6. ⌨️🖥️ Entrada e Saída – Falar com o usuário
+Entrada – receber dados:
+visuAlg
+Copiar
+Editar
+leia(idade)
+Saída – mostrar informações:
+visuAlg
+Copiar
+Editar
+escreva("Sua idade é:", idade)
+7. 📝 Comentários – Explicações no código
+Servem para descrever o que cada parte do código faz.
+
+Exemplo:
+
+visuAlg
+Copiar
+Editar
+// Este programa mostra a idade da pessoa
+inteiro idade = 18
+escreva("Idade:", idade)
+📘 Mais sobre Operadores Relacionais e Lógicos
+Ainda em construção...
