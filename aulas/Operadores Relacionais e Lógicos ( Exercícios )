@@ -1,0 +1,56 @@
+Exercício 1 – Variáveis
+Enunciado:
+Crie um programa que declare três variáveis: uma para o nome do usuário (cadeia), uma para a idade (inteiro) e outra para a altura (real). Depois, mostre esses dados na tela.
+
+✅ Exercício 2 – Tipos de Dados
+Pergunta:
+Classifique os seguintes valores com o tipo de dado correto:
+
+a) "Boa noite"
+b) false
+c) 27
+d) 'X'
+e) 3.1415
+
+✅ Exercício 3 – Operadores
+Enunciado:
+Dado o seguinte trecho de código:
+
+visuAlg
+Copiar
+Editar
+inteiro a = 10
+inteiro b = 3
+
+escreva(a + b)
+escreva(a % b)
+escreva(a > b)
+Pergunta:
+
+Quais serão os valores exibidos na tela?
+
+O que significa o operador %?
+
+✅ Exercício 4 – Condicionais
+Enunciado:
+Escreva um programa que peça ao usuário um número inteiro e diga se ele é positivo, negativo ou zero.
+
+✅ Exercício 5 – Repetição com “enquanto”
+Enunciado:
+Faça um programa que mostre os números de 1 até 10 utilizando o laço enquanto.
+
+✅ Exercício 6 – Repetição com “para”
+Enunciado:
+Escreva um programa que mostre a tabuada do 7 (de 7x1 até 7x10) usando o laço para.
+
+✅ Exercício 7 – Entrada e Saída
+Enunciado:
+Faça um programa que:
+
+Leia o nome e a idade do usuário.
+
+Mostre a seguinte mensagem: "Olá, [nome]! Você tem [idade] anos."
+
+✅ Exercício 8 – Comentários
+Enunciado:
+Escreva um código que calcula a média de duas notas e inclua comentários explicando cada linha.
