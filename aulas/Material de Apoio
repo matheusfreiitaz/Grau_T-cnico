@@ -1,0 +1,51 @@
+Curso em Vídeo – Introdução a Algoritmos
+https://www.youtube.com/watch?v=8mei6uVttho - Gustavo Guanabara
+✅ Recomendado como ponto de partida para quem está começando em lógica de programação.
+Aula introdutória sobre algoritmos, explicando de forma didática o que são, como funcionam e por que são importantes no desenvolvimento de software.
+
+
+
+🎓 Boson Treinamentos – Lógica de Programação com Portugol
+https://www.youtube.com/watch?v=ijgle1EJ2XM
+Aula prática que ensina como usar operadores matemáticos e criar expressões aritméticas no Portugol Studio.
+Fundamental para estruturar cálculos dentro de algoritmos.
+
+
+
+🎓 Cataline – Tipos de Dados em Portugol
+ https://www.youtube.com/watch?v=EIPdLkvAb0w
+Explica os principais tipos de dados utilizados em algoritmos com Portugol: inteiro, real, caractere e lógico.
+Essencial para aprender como declarar e usar variáveis corretamente.
+
+
+
+📚 Sugestão de Organização de Estudo
+Semana	Tema	Vídeo Recomendado	Tópicos para Fixar
+1	Introdução à Lógica	Curso em Vídeo – Introdução a Algoritmos	Algoritmos, passos lógicos, representação
+2	Tipos de Dados	Cataline – Tipos de Dados em Portugol	Inteiro, real, caractere, lógico, variáveis
+3	Operadores e Expressões	Boson – Operadores e Expressões Aritméticas em Portugol	Soma, subtração, multiplicação, divisão, resto
+
+
+
+🧠 Dicas Complementares
+Use Portugol Studio para testar o que aprendeu nas aulas ou em videos.
+Após cada vídeo, escreva um resumo com exemplos próprios.
+Crie desafios simples como: calcular média, converter temperaturas, somar números.
+
+
+
+🌐 Recomendações de Sites para Prática e Aprendizado
+🧩 Code.org   https://code.org/
+Plataforma interativa voltada para o ensino de programação, lógica e pensamento computacional, com recursos visuais e atividades práticas.
+✅ Recomendado para iniciantes e jovens aprendizes – ideal para começar de forma divertida e intuitiva.
+
+🧠 Scratch (MIT)   https://scratch.mit.edu/  
+Ambiente de programação por blocos criado pelo MIT. Permite desenvolver jogos, animações e histórias interativas.
+✅ Excelente para entender a lógica de programação sem precisar digitar código, ótimo para ensino fundamental e médio.
+
+💬 Stack Overflow em Português    https://pt.stackoverflow.com/
+Comunidade de perguntas e respostas voltada para programadores de todos os níveis.
+✅ Ótimo para tirar dúvidas específicas, buscar soluções de problemas práticos e interagir com outros desenvolvedores da comunidade.
+
+
+
