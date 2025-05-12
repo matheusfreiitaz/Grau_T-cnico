@@ -80,3 +80,33 @@ Se for zero ou menor, aparece:
 - **Tipo lógico** guarda **verdadeiro** ou **falso**.
 - É usado para **comparações e decisões**.
 - Exemplos de comparações: `>`, `<`, `==`, `!=`, `>=`, `<=`.
+
+
+
+
+
+public class TrickyLoop {
+    public static void main(String[] args) {
+        int num = 5;
+        boolean flag = false;
+
+        do {
+            if (num % 2 == 0) {
+                num = num / 2;             EXE.
+            } else {                        TR.
+                num = num * 3 + 1;
+                flag = true;
+            }
+        } while (num != 1 && !flag);        TR.
+
+        System.out.println(num);
+    }
+}
+
+
+
+
+
+
+
+
