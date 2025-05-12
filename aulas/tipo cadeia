@@ -73,10 +73,56 @@ programa
         escreva("\nOlá ", nome2)      // mostra uma mensagem com o nome digitado
     }
 }
+----------------------------------------------------------
 
-```
+Exemplos práticos
+Exemplo 1: Guardar um nome
+visuAlg
+----------------------------------------------------------
 
----
+cadeia nome
+nome = "Ana"
+escreva("Nome guardado: ", nome)
+Exemplo 2: Guardar uma frase
+
+----------------------------------------------------------
+
+visuAlg
+cadeia frase
+frase = "Hoje está um dia bonito."
+escreva("Frase: ", frase)
+Exemplo 3: Ler o nome do usuário
+----------------------------------------------------------
+
+Editar
+cadeia nomeUsuario
+----------------------------------------------------------
+
+
+escreva("Digite seu nome: ")
+leia(nomeUsuario)
+----------------------------------------------------------
+
+escreva("Olá, ", nomeUsuario)
+Como declarar?
+Você usa a palavra cadeia e o nome da variável:
+----------------------------------------------------------
+
+visuAlg
+cadeia nome
+Para guardar um texto diretamente, use aspas duplas:
+----------------------------------------------------------
+
+visuAlg
+nome = "João"
+Para ler um texto digitado pelo usuário, use o comando leia:
+----------------------------------------------------------
+
+visuAlg
+escreva("Digite seu nome: ")
+leia(nome)
+
+----------------------------------------------------------
 
 ### 📝 **Resumo**
 
