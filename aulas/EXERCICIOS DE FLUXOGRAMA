@@ -1,37 +1,107 @@
-### Exercício 1: Processo de Soma
+1. Validador de Senha Forte
+Crie um fluxograma que:
 
-**Descrição:**
+Solicite uma senha ao usuário.
 
-Crie um fluxograma para o processo de somar dois números.
+Verifique se ela tem pelo menos 8 caracteres, contém letras e números.
 
----
+Se atender aos critérios, exibir: “Senha forte”.
 
-### Exercício 2: Verificação de Número Par ou Ímpar
+Caso contrário, permitir até 3 tentativas e então encerrar com “Senha inválida”.
 
-**Descrição:**
+2. Calculadora com Repetição
+Desenhe um fluxograma que:
 
-Crie um fluxograma para verificar se um número fornecido pelo usuário é par ou ímpar.
+Solicite dois números e uma operação matemática (+, -, *, /).
 
----
+Realize a operação e mostre o resultado.
 
-### Exercício 3: Calculadora Simples
+Pergunte se o usuário deseja calcular novamente.
 
-**Descrição:**
+Repita até que o usuário diga “NÃO”.
 
-Crie um fluxograma que simule uma calculadora simples, permitindo ao usuário realizar a operação de soma ou subtração.
+3. IMC com Classificação
+Monte um fluxograma que:
 
----
+Peça o peso e a altura do usuário.
 
-### Exercício 4: Contagem Regressiva
+Calcule o IMC.
 
-**Descrição:**
+Classifique o resultado:
 
-Crie um fluxograma para realizar uma contagem regressiva a partir de um número N até 0, exibindo cada número durante o processo.
+Abaixo de 18.5: “Abaixo do peso”
 
----
+Entre 18.5 e 24.9: “Peso ideal”
 
-### Exercício 5: Verificação de Maioridade
+Entre 25 e 29.9: “Sobrepeso”
 
-**Descrição:**
+Acima de 30: “Obesidade”
 
-Crie um fluxograma para verificar se uma pessoa é maior de idade (18 anos ou mais).
+4. Validação de Data
+Crie um fluxograma que:
+
+Peça ao usuário dia, mês e ano.
+
+Verifique se a data é válida (não precisa considerar anos bissextos, apenas regras de dias e meses).
+
+Exiba se a data é válida ou inválida.
+
+5. Tabuada Completa com Loop
+Desenhe um fluxograma que:
+
+Peça um número ao usuário.
+
+Mostre a tabuada de 1 a 10 desse número.
+
+Exemplo: 2 × 1 = 2, 2 × 2 = 4, ..., 2 × 10 = 20
+
+6. Sistema de Caixa com Desconto e Troco
+Crie um fluxograma que:
+
+Solicite o valor de compra.
+
+Se o valor for maior que R$ 100, aplique 10% de desconto.
+
+Solicite o valor pago.
+
+Mostre o troco ao cliente.
+
+7. Números Primos até N
+Desenvolva um fluxograma que:
+
+Solicite um número N.
+
+Mostre todos os números primos de 1 até N.
+
+8. Cadastro com Confirmação
+Desenhe um fluxograma que:
+
+Solicite nome, e-mail e senha.
+
+Peça confirmação da senha.
+
+Se as senhas forem iguais, mostre “Cadastro concluído”.
+
+Caso contrário, permita repetir até acertar (ou limite a 3 tentativas).
+
+9. Simulador de Conta Bancária
+Crie um fluxograma com:
+
+Saldo inicial de R$ 1000.
+
+Permita o usuário fazer depósitos e saques.
+
+Atualize o saldo.
+
+Finalize quando o usuário digitar “sair”.
+
+10. Sistema de Votação com Resultados
+Crie um fluxograma que:
+
+Registre votos para três candidatos: A, B e C.
+
+Permita votar quantas vezes o usuário quiser.
+
+Encerrar quando digitar “FIM”.
+
+Exibir total de votos para cada candidato ao final.
