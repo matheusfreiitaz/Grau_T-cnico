@@ -1,167 +1,95 @@
-## 1. **Variáveis – A caixinha que guarda dados**
+✅ 1. Variáveis – A caixinha que guarda dados
+1) O que melhor descreve uma variável em programação?
+A) Um tipo de dado fixo que nunca muda
+B) Um número aleatório gerado pelo computador
+C) Uma caixinha com nome onde guardamos um valor
+D) Um tipo de programa que executa sozinho
 
-Imagine uma **caixinha com nome** onde você guarda alguma coisa.
 
-🧊 Exemplo:
 
-```
-programa
-CopiarEditar
-inteiro idade = 18
+🔠 2. Tipos de dados – Que tipo de coisa estamos guardando?
+2) Qual das opções representa corretamente uma variável do tipo real?
+A) "3.14"
+B) 3.14
+C) '3'
+D) 3,14
 
-```
 
-🗣️ “Criei uma caixinha chamada `idade` e guardei o número 18 nela.”
+(O valor 3.14 é um número real. Aspas ou vírgulas alteram o tipo.)
 
-👉 Usamos variáveis pra guardar **valores que mudam**.
+➕ 3. Operadores – Ferramentas para calcular e comparar
+3) Qual operador retorna o resto de uma divisão?
+A) /
+B) *
+C) %
+D) ==
 
----
 
-## 🔤 2. **Tipos de dados – Que tipo de coisa estamos guardando?**
 
-Existem tipos diferentes de coisas que podemos guardar:
+4) Qual resultado da expressão 5 > 3?
+A) falso
+B) verdadeiro
+C) 3
+D) 5
 
-| Tipo | O que guarda | Exemplo |
-| --- | --- | --- |
-| inteiro | números inteiros (sem vírgula) | 5, -2, 100 |
-| real | números com vírgula/ponto | 3.14, -0.5 |
-| caractere | letras ou símbolos | `'A'`, `'!'` |
-| logico | verdadeiro ou falso | `verdadeiro`, `falso` |
-| cadeia | conjunto de letras (texto) | `"Olá mundo"` |
 
----
 
-## ➕ 3. **Operadores – Ferramentas para comparar ou calcular**
+❓ 4. Condicionais – Se isso acontecer, faça aquilo
+5) O que acontece no código abaixo se idade = 17?
 
-### 👉 Aritméticos (conta de matemática):
 
-- `+` soma
-- subtração
-- multiplicação
-- `/` divisão
-- `%` resto da divisão (útil pra saber se é par!)
-
-### 👉 Relacionais (comparações):
-
-- `==` igual
-- `!=` diferente
-- `>` maior
-- `<` menor
-- `>=` maior ou igual
-- `<=` menor ou igual
-
-### 👉 Lógicos (para combinar condições):
-
-- `e` (AND)
-- `ou` (OR)
-- `nao` (NOT)
-
----
-
-## 🧩 4. **Condicionais – Se isso acontecer, faça aquilo**
-
-É como uma escolha. O programa decide o que fazer baseado numa condição.
-
-🧊 Exemplo:
-
-```
-programa
-CopiarEditar
 se (idade >= 18) {
   escreva("Pode entrar!")
 } senao {
   escreva("Não pode entrar!")
 }
+A) Mostra "Pode entrar!"
+B) Mostra "Não pode entrar!"
+C) Dá erro
+D) Mostra nada
 
-```
 
-📌 Se a condição for verdadeira, ele executa a primeira parte. Senão, vai pra segunda.
 
----
+🔁 5. Repetições – Fazer algo várias vezes
+6) Qual opção mostra uma estrutura que repete algo 5 vezes?
+A) se (i == 5)
+B) leia(i)
+C) para (inteiro i = 1; i <= 5; i = i + 1)
+D) escreva("5 vezes")
 
-## 🔁 5. **Repetições – Fazer algo várias vezes**
 
-Quando você quer repetir algo até que uma condição mude.
 
-### `enquanto` (while):
+⌨️ 6. Entrada e Saída – Falar com o usuário
+7) Qual comando é usado para receber uma informação do usuário?
+A) mostre()
+B) escreva()
+C) leia()
+D) digite()
 
-Faz **enquanto for verdade**.
 
-```
-programa
-CopiarEditar
-inteiro i = 1
-enquanto (i <= 5) {
-  escreva(i)
-  i = i + 1
-}
 
-```
+8) Qual comando é usado para mostrar uma mensagem na tela?
+A) mostre()
+B) escreva()
+C) leia()
+D) envie()
 
-📌 Vai escrever de 1 até 5.
 
----
 
-### `para` (for):
+💬 7. Comentários – Explicar o código
+9) Para que servem os comentários em um código?
+A) Para o computador executar mais rápido
+B) Para guardar dados
+C) Para explicar o que o código faz
+D) Para fazer cálculos
 
-Você **define quantas vezes vai repetir**.
 
-```
-programa
-CopiarEditar
-para (inteiro i = 1; i <= 5; i = i + 1) {
-  escreva(i)
-}
 
-```
+10) Qual dessas formas representa um comentário válido?
+A) /* Isso é um comentário */
+B) comentário: isso aqui
+C) # Isto é um comentário
+D) // Este é um comentário
 
----
 
-## ⌨️ 6. **Entrada/Saída – Falar com o usuário**
 
-### Entrada → pedir informação:
-
-```
-programa
-CopiarEditar
-leia(idade)
-
-```
-
-### Saída → mostrar informação:
-
-```
-programa
-CopiarEditar
-escreva("Sua idade é:", idade)
-
-```
-
----
-
-## 💬 7. **Comentários – Explicar o código (não é executado)**
-
-São textos no código só pra quem está lendo entender.
-
-🧊 Exemplo:
-
-```
-programa
-CopiarEditar
-// Este programa mostra a idade da pessoa
-inteiro idade = 18
-escreva("Idade:", idade)
-
-```
-
-📌 Os comentários ajudam a lembrar o que cada parte faz.
-
----
-
-## 🧑‍🏫 Dica de ensino:
-
-Você pode ir explicando um por um **com exemplos visuais**, como:
-
-- Caixas com etiquetas (pra variáveis)
-- Um semáforo (pra mostrar condicionais)
-- Um loop mostrando passos de uma escada (pra repetições)
