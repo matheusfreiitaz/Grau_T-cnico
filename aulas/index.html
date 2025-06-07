@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RH Corporativo | Gestão de Funcionários</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/lucide@latest">
+    <style>
+        :root {
+            --primary: #6d5bd0;
+            --primary-light: #f4f2ff;
+            --secondary: #25213b;
+            --gray-light: #f5f5f5;
+            --gray-medium: #e0e0e0;
+            --gray-dark: #757575;
+            --text: #25213b;
+            --text-light: #6e6893;
+            --success: #4caf50;
+            --error: #f44336;
+            --warning: #ff9800;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background-color: var(--gray-light);
+            line-height: 1.6;
+        }
+
+        .app-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-sm);
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-item.active, .nav-item:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .nav-item i {
+            font-size: 1.25rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 2rem;
+            overflow: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Dashboard Layout */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Form Section */
+        .form-section {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background-color: var(--gray-medium);
+            border-radius: 3px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary);
+            width: 30%;
+            transition: width 0.3s ease;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-medium);
+            border-radius: var(--radius-sm);
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(109, 91, 208, 0.2);
+        }
+
+        input.error {
+            border-color: var(--error);
+        }
+
+        input.success {
+            border-color: var(--success);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .photo-upload {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .photo-preview {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .photo-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .upload-btn {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .upload-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a4bb8;
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--text-light);
+            border: 1px solid var(--gray-medium);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--gray-light);
+        }
+
+        /* Sidebar Section */
+        .sidebar-section {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .search-bar {
+            position: relative;
+        }
+
+        .search-bar input {
+            padding-left: 2.5rem;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-dark);
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .filter-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            padding: 0.375rem 0.75rem;
+            background-color: var(--gray-light);
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chip.active {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .employee-list {
+            flex-grow: 1;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        .employee-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .employee-item:hover {
+            background-color: var(--gray-light);
+        }
+
+        .employee-item.active {
+            background-color: var(--primary-light);
+        }
+
+        .employee-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .employee-info {
+            flex-grow: 1;
+        }
+
+        .employee-name {
+            font-weight: 500;
+            margin-bottom: 0.125rem;
+        }
+
+        .employee-position {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+        }
+
+        .employee-status {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .status-active {
+            background-color: var(--success);
+        }
+
+        .status-inactive {
+            background-color: var(--gray-dark);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--gray-medium);
+            margin-bottom: 1.5rem;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            position: relative;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .tab.active {
+            color: var(--primary);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Document List */
+        .document-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            background-color: var(--gray-light);
+            border-radius: var(--radius-sm);
+        }
+
+        .document-icon {
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+
+        .document-info {
+            flex-grow: 1;
+        }
+
+        .document-name {
+            font-weight: 500;
+        }
+
+        .document-date {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .benefit-card {
+            background-color: var(--gray-light);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        /* Performance */
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-medium);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+        }
+
+        /* Chat Panel */
+        .chat-panel {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            width: 350px;
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transform: translateY(calc(100% - 48px));
+            transition: transform 0.3s ease;
+            z-index: 100;
+        }
+
+        .chat-panel.expanded {
+            transform: translateY(0);
+        }
+
+        .chat-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .chat-title {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .online-count {
+            font-size: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.125rem 0.5rem;
+            border-radius: 1rem;
+        }
+
+        .chat-content {
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 80%;
+        }
+
+        .message.sent {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .message-content {
+            padding: 0.75rem;
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+        }
+
+        .received .message-content {
+            background-color: var(--gray-light);
+            border-top-left-radius: 0;
+        }
+
+        .sent .message-content {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-top-right-radius: 0;
+        }
+
+        .message-time {
+            font-size: 0.625rem;
+            color: var(--gray-dark);
+            margin-top: 0.25rem;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid var(--gray-medium);
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-medium);
+            border-radius: var(--radius-sm);
+            margin-right: 0.5rem;
+        }
+
+        .send-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-medium);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-dark);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--gray-medium);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            transform: translateX(-50%);
+        }
+
+        .timeline-content {
+            background-color: var(--gray-light);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .app-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .chat-panel {
+                width: calc(100% - 2rem);
+            }
+
+            .benefits-grid, .performance-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); }
+            to { transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        .slide-up {
+            animation: slideUp 0.3s ease forwards;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .notification.show {
+            opacity: 1;
+        }
+
+        /* Salary Table */
+        .salary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .salary-table th, .salary-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-medium);
+        }
+
+        .salary-table th {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .salary-table tr:hover {
+            background-color: var(--gray-light);
+        }
+
+        /* Document Upload */
+        .document-upload {
+            border: 2px dashed var(--gray-medium);
+            border-radius: var(--radius-sm);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .document-upload:hover {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .document-upload input {
+            display: none;
+        }
+
+        /* Vacation Calendar */
+        .vacation-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .calendar-header {
+            text-align: center;
+            font-weight: 500;
+            padding: 0.5rem;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: var(--radius-sm);
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+        }
+
+        .calendar-day.empty {
+            background-color: transparent;
+            cursor: default;
+        }
+
+        .calendar-day.available {
+            background-color: var(--gray-light);
+        }
+
+        .calendar-day.booked {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .calendar-day.pending {
+            background-color: var(--warning);
+            color: white;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: var(--secondary);
+            color: #fff;
+            text-align: center;
+            border-radius: var(--radius-sm);
+            padding: 0.5rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.75rem;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i data-lucide="users"></i>
+                <span>RH Corporativo</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-tab="employee-registration">
+                    <i data-lucide="user-plus"></i>
+                    <span>Cadastrar Funcionário</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="employee-list">
+                    <i data-lucide="list"></i>
+                    <span>Lista de Funcionários</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="vacation-management">
+                    <i data-lucide="calendar"></i>
+                    <span>Férias e Licenças</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="documents">
+                    <i data-lucide="file-text"></i>
+                    <span>Documentos</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="payroll">
+                    <i data-lucide="dollar-sign"></i>
+                    <span>Folha de Pagamento</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="performance">
+                    <i data-lucide="bar-chart-2"></i>
+                    <span>Desempenho</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="reports">
+                    <i data-lucide="pie-chart"></i>
+                    <span>Relatórios</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="settings">
+                    <i data-lucide="settings"></i>
+                    <span>Configurações</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1 class="page-title">Cadastro de Funcionário</h1>
+                <div class="user-profile">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="User" class="user-avatar">
+                    <span>Madalena</span>
+                </div>
+            </header>
+
+            <div class="dashboard">
+                <!-- Form Section -->
+                <section class="form-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Informações Pessoais</h2>
+                        <span class="badge">Novo Cadastro</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <form id="employee-form">
+                        <div class="tabs">
+                            <div class="tab active" data-tab="personal-info">Dados Pessoais</div>
+                            <div class="tab" data-tab="professional-info">Dados Profissionais</div>
+                            <div class="tab" data-tab="benefits">Benefícios</div>
+                            <div class="tab" data-tab="documents">Documentos</div>
+                        </div>
+
+                        <div class="tab-content active" id="personal-info">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="full-name">Nome Completo</label>
+                                    <input type="text" id="full-name" placeholder="Digite o nome completo" required>
+                                    <span class="error-message">Este campo é obrigatório</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cpf">CPF</label>
+                                    <input type="text" id="cpf" placeholder="000.000.000-00" required>
+                                    <span class="error-message">CPF inválido</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="rg">RG</label>
+                                    <input type="text" id="rg" placeholder="Digite o RG">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="birth-date">Data de Nascimento</label>
+                                    <input type="date" id="birth-date" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="gender">Gênero</label>
+                                    <select id="gender" required>
+                                        <option value="">Selecione</option>
+                                        <option value="male">Masculino</option>
+                                        <option value="female">Feminino</option>
+                                        <option value="other">Outro</option>
+                                        <option value="not_say">Prefiro não dizer</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="marital-status">Estado Civil</label>
+                                    <select id="marital-status">
+                                        <option value="">Selecione</option>
+                                        <option value="single">Solteiro(a)</option>
+                                        <option value="married">Casado(a)</option>
+                                        <option value="divorced">Divorciado(a)</option>
+                                        <option value="widowed">Viúvo(a)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">E-mail Corporativo</label>
+                                    <input type="email" id="email" placeholder="nome.sobrenome@empresa.com" required>
+                                    <span class="error-message">E-mail inválido</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="personal-email">E-mail Pessoal</label>
+                                    <input type="email" id="personal-email" placeholder="seu@email.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Telefone</label>
+                                    <input type="tel" id="phone" placeholder="(00) 00000-0000">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="emergency-contact">Contato de Emergência</label>
+                                    <input type="text" id="emergency-contact" placeholder="Nome e telefone">
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="address">Endereço Completo</label>
+                                    <input type="text" id="address" placeholder="Rua, número, complemento, bairro, cidade, estado, CEP">
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label>Foto do Funcionário</label>
+                                    <div class="photo-upload">
+                                        <div class="photo-preview">
+                                            <i data-lucide="user" width="32" height="32"></i>
+                                        </div>
+                                        <button type="button" class="upload-btn">
+                                            <i data-lucide="upload"></i>
+                                            <span>Enviar Foto</span>
+                                        </button>
+                                        <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="professional-info">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="position">Cargo</label>
+                                    <input type="text" id="position" placeholder="Digite o cargo" list="positions" required>
+                                    <datalist id="positions">
+                                        <option value="Desenvolvedor Front-end">
+                                        <option value="Desenvolvedor Back-end">
+                                        <option value="Gerente de Projetos">
+                                        <option value="Designer UX/UI">
+                                        <option value="Analista de RH">
+                                        <option value="Diretor Financeiro">
+                                    </datalist>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="department">Departamento</label>
+                                    <input type="text" id="department" placeholder="Digite o departamento" list="departments" required>
+                                    <datalist id="departments">
+                                        <option value="Tecnologia">
+                                        <option value="Recursos Humanos">
+                                        <option value="Financeiro">
+                                        <option value="Marketing">
+                                        <option value="Vendas">
+                                        <option value="Operações">
+                                    </datalist>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="hire-date">Data de Admissão</label>
+                                    <input type="date" id="hire-date" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="employee-id">Matrícula</label>
+                                    <input type="text" id="employee-id" placeholder="Número de matrícula" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="manager">Gestor Imediato</label>
+                                    <input type="text" id="manager" placeholder="Nome do gestor" list="managers">
+                                    <datalist id="managers">
+                                        <option value="Ana Santos">
+                                        <option value="Pedro Costa">
+                                        <option value="Juliana Pereira">
+                                    </datalist>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="work-schedule">Horário de Trabalho</label>
+                                    <select id="work-schedule">
+                                        <option value="8-17">08:00 - 17:00</option>
+                                        <option value="9-18">09:00 - 18:00</option>
+                                        <option value="flex">Horário Flexível</option>
+                                        <option value="remote">Remoto - Horário Flexível</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="employment-type">Tipo de Contrato</label>
+                                    <select id="employment-type" required>
+                                        <option value="">Selecione</option>
+                                        <option value="clt">CLT</option>
+                                        <option value="pj">PJ</option>
+                                        <option value="intern">Estágio</option>
+                                        <option value="temporary">Temporário</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="salary">Salário Base</label>
+                                    <input type="text" id="salary" placeholder="R$ 0,00" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <div class="filter-chips">
+                                        <span class="chip active">Ativo</span>
+                                        <span class="chip">Inativo</span>
+                                        <span class="chip">Afastado</span>
+                                        <span class="chip">Férias</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="job-description">Descrição do Cargo</label>
+                                    <textarea id="job-description" rows="3" placeholder="Descreva as responsabilidades e atribuições do cargo"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="benefits">
+                            <div class="benefits-grid">
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">
+                                        <i data-lucide="heart"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Plano de Saúde</h4>
+                                        <p>Amil - Empresarial</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">
+                                        <i data-lucide="tooth"></i>
+                                    </
