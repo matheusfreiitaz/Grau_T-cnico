@@ -32,9 +32,7 @@ Aqui você encontrará exemplos práticos, instruções passo a passo, e desafio
 ├── 📁 teoria
 │ └── tipos_de_dados.md
 
-markdown
-Copiar
-Editar
+
 
 ## 📝 Conteúdo Abordado
 
