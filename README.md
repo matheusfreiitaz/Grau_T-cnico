@@ -3,7 +3,7 @@
 Este repositório foi criado com o objetivo de reunir **materiais de estudo, atividades práticas e desafios** relacionados à **Lógica de Programação**, focando principalmente em quem está começando no mundo da programação.
 
 ## 📘 Sobre
-
+ 
 Aqui você encontrará exemplos práticos, instruções passo a passo, e desafios que irão te ajudar a:
 
 - Entender os fundamentos da lógica de programação.
